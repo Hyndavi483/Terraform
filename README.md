@@ -1,6 +1,6 @@
-# Terraform EC2
+# Terraform 
 
-Ec2 Creation --> About how to create Ec2 instance
+# Ec2 Creation --> About how to create Ec2 instance
 Creating Modular Infrastructure with Terraform Modules Unlock the potential of reusability with Terraform modules. Understand how modules enable you to create shareable and organized infrastructure components.
 
 Local Values and Data Sources Simplify complex expressions using local values. Dive into data sources and learn how to fetch data from existing resources or external systems, enhancing your configurations' flexibility.
@@ -55,7 +55,7 @@ We can implement the  locking in DynamoDB. If we have multiple people updating t
 
 First create S3 bucket, DynamoDB and implement the instance
 
-Terraform Provisioning and Provisioners: 
+# Terraform Provisioning and Provisioners: 
 Provisioner is a concept in terraform that allows you to copy and execute creation and destruction.
 
 Why Provisioners?
