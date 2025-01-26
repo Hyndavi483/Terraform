@@ -16,8 +16,9 @@ Output.tf --> We will ask the script to provide the output of particular variabl
 
 Terraform.tfvars --> We will pass the values to variables. Along with input.tf, output.tf we can create tfvars. Only in tfvars can we change the values. In input we will create a variable and pass the value in tfvars.
 
+terraform apply -var-name=state.tfvars
 
-Terraform state file: Heart of terraform script. 
+# Terraform state file: Heart of terraform script. 
 
 Adv: Useful to record the infrastructure that is created and update the information of created infrastructure. We can destroy the infrastructure of the created instance.
 
@@ -75,6 +76,11 @@ Terraform script → VPC → Public subnet → Route table —> Ec2
 To Overcome the Drawbacks of terraform we have remote backend:
 We can store the state file in S3 bucket. Instead of your state file getting created in local it is getting created and updated in S3.
 
+In Terraform in bound configuration represented using Ingress
+Out-bound Configuration → Egress
+
+Using Provisioners we can deploy applications in instances by using terraform script.
+
 # Managing environment with work spaces:
 When we want to create the same infrastructure(Ec2 + S3) in Dev, QA, UAT, Prod. With our normal Terraform script there is only one state file so we won't be able to add a new environment. To Overcome this issue Workspace came into picture. So we will have different State files for different environments.Terraform cloud → we can host the backend in terraform cloud.
 
@@ -83,7 +89,3 @@ By Creation of workspaces we are able to generate multiple state files for each 
 Creating the workspace ---> terraform workspace new dev
 Going to particular workspace ---> terraform workspace select dev
 
-In Terraform in bound configuration represented using Ingress
-Out-bound Configuration → Egress
-
-Using Provisioners we can deploy applications in instances by using terraform script.
