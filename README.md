@@ -72,6 +72,9 @@ We need to create ssh-keygen -t rsa for VPC creation
 Terraform script → VPC → Public subnet → Route table —> Ec2
 To Overcome the Drawbacks of terraform we have remote backend:
 We can store the state file in S3 bucket. Instead of your state file getting created in local it is getting created and updated in S3.
+
+# Managing environment with work spaces:
+
 Terraform cloud → we can host the backend in terraform cloud.
 In Terraform in bound configuration represented using Ingress
 Out-bound Configuration → Egress
