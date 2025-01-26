@@ -34,6 +34,46 @@ Drawbacks:
 Any action you want to perform with a terraform script will take information and record it in a state file → for example you want to save the sensitive information. 
 If you are using Github (VCS) and a devops engineer made a code change of terraform script in his local area then he needs to merge the code changes and state file as well. If they forgot to update the state file then it will throw some errors.
 
+Why do you need output.tf we have all data available in the state file?
+For Developers we won't give access to state file
+
+Terraform show: Give all the details of state file
+
+How to initialize the remote backend:
+backend.tf
+terraform {
+  backend "s3" {
+    bucket         = "abhishek-s3-demo-xyz" # change this
+    key            = "abhi/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "terraform-lock"
+  }
+}
+
+We can implement the  locking in DynamoDB. If we have multiple people updating the same script then we need to use a lock file. Since we are using statefile to store in S3 bucket
+
+First create S3 bucket, DynamoDB and implement the instance
+
+Terraform Provisioning and Provisioners: 
+Provisioner is a concept in terraform that allows you to copy and execute creation and destruction.
+
+Why Provisioners?
+We can create the instances but we cannot deploy the applications or install softwares.
+So terraform provide 2 features:
+Remote exec: you can run the commands while creation only.
+Local exec: If we have more no of lines as output we can save it in one file.
+File: Used to copy files from source to destination.
+
+We want to deploy an application on an ec2 instance without writing the user data by using provisioners.
+
+We need to create ssh-keygen -t rsa for VPC creation
+
+Terraform script → VPC → Public subnet → Route table —> Ec2
 To Overcome the Drawbacks of terraform we have remote backend:
 We can store the state file in S3 bucket. Instead of your state file getting created in local it is getting created and updated in S3.
 Terraform cloud → we can host the backend in terraform cloud.
+In Terraform in bound configuration represented using Ingress
+Out-bound Configuration → Egress
+
+Using Provisioners we can deploy applications in instances by using terraform script.
