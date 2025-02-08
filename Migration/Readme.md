@@ -16,4 +16,4 @@ Then generated_resources.tf will contain all configuration copy them and paste i
 And run the terraform import aws_instance.example instance-id
 
 Then run the terraform plan
-It should show No changes. Your infrastructure matches the configuration.
+It should show No changes. Your infrastructure matches the configuration..
