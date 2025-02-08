@@ -58,8 +58,9 @@ To start Vault, you can use the following command:
 ```
 vault server -dev -dev-listen-address="0.0.0.0:8200"
 ```
+export VAULT_ADDR='http://127.0.0.1:8200'
 
-## Configure Terraform to read the secret from Vault.
+And then Create the Secret in UI
 
 Detailed steps to enable and configure AppRole authentication in HashiCorp Vault:
 
@@ -123,11 +124,6 @@ vault write auth/approle/role/terraform \
 3. **Generate Role ID and Secret ID**:
 
 After creating the AppRole, you need to generate a Role ID and Secret ID pair. The Role ID is a static identifier, while the Secret ID is a dynamic credential.
-
-If you are facing an issue like below:
-Error reading auth/approle/role/terraform/role-id: Get "https://127.0.0.1:8200/v1/auth/approle/role/terraform/role-id": http: server gave HTTP response to HTTPS client
-Then fix like below:
-export VAULT_ADDR='http://127.0.0.1:8200'
 
 **a. Generate Role ID**:
 
